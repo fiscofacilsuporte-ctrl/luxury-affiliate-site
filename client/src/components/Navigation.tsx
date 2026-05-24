@@ -1,1 +1,74 @@
-import { useState } from 'react';\nimport { Menu, X } from 'lucide-react';\n\nexport default function Navigation() {\n  const [isOpen, setIsOpen] = useState(false);\n\n  const navItems = [\n    { label: 'Relógios', href: '#watches' },\n    { label: 'Sapatos', href: '#shoes' },\n    { label: 'Acessórios', href: '#accessories' },\n    { label: 'Sobre', href: '#about' },\n  ];\n\n  return (\n    <nav className=\"fixed top-0 w-full bg-background/95 backdrop-blur-sm border-b border-border z-50\">\n      <div className=\"container flex items-center justify-between h-20\">\n        {/* Logo */}\n        <div className=\"flex items-center gap-2\">\n          <div className=\"w-10 h-10 bg-gradient-to-br from-accent to-yellow-700 rounded-lg flex items-center justify-center\">\n            <span className=\"text-foreground font-bold text-lg\">L</span>\n          </div>\n          <span className=\"font-display text-xl hidden sm:block\">Luxury Elite</span>\n        </div>\n\n        {/* Desktop Navigation */}\n        <div className=\"hidden md:flex items-center gap-8\">\n          {navItems.map((item) => (\n            <a\n              key={item.label}\n              href={item.href}\n              className=\"font-body text-sm font-medium text-foreground/80 hover:text-accent transition-colors duration-300\"\n            >\n              {item.label}\n            </a>\n          ))}\n        </div>\n\n        {/* CTA Button */}\n        <button className=\"hidden md:block btn-luxury text-sm\">\n          Explorar Catálogo\n        </button>\n\n        {/* Mobile Menu Button */}\n        <button\n          onClick={() => setIsOpen(!isOpen)}\n          className=\"md:hidden p-2 hover:bg-secondary rounded-lg transition-colors\"\n        >\n          {isOpen ? <X size={24} /> : <Menu size={24} />}\n        </button>\n      </div>\n\n      {/* Mobile Navigation */}\n      {isOpen && (\n        <div className=\"md:hidden bg-card border-b border-border\">\n          <div className=\"container py-4 space-y-4\">\n            {navItems.map((item) => (\n              <a\n                key={item.label}\n                href={item.href}\n                className=\"block font-body text-sm font-medium text-foreground/80 hover:text-accent transition-colors\"\n                onClick={() => setIsOpen(false)}\n              >\n                {item.label}\n              </a>\n            ))}\n            <button className=\"w-full btn-luxury text-sm mt-4\">\n              Explorar Catálogo\n            </button>\n          </div>\n        </div>\n      )}\n    </nav>\n  );\n}\n
+import { useState } from 'react';
+import { Menu, X } from 'lucide-react';
+
+export default function Navigation() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const navItems = [
+    { label: 'Relógios', href: '#watches' },
+    { label: 'Sapatos', href: '#shoes' },
+    { label: 'Acessórios', href: '#accessories' },
+    { label: 'Sobre', href: '#about' },
+  ];
+
+  return (
+    <nav className="fixed top-0 w-full bg-background/95 backdrop-blur-sm border-b border-border z-50">
+      <div className="container flex items-center justify-between h-20">
+        {/* Logo */}
+        <div className="flex items-center gap-2">
+          <div className="w-10 h-10 bg-gradient-to-br from-accent to-yellow-700 rounded-lg flex items-center justify-center">
+            <span className="text-foreground font-bold text-lg">L</span>
+          </div>
+          <span className="font-display text-xl hidden sm:block">Luxury Elite</span>
+        </div>
+
+        {/* Desktop Navigation */}
+        <div className="hidden md:flex items-center gap-8">
+          {navItems.map((item) => (
+            <a
+              key={item.label}
+              href={item.href}
+              className="font-body text-sm font-medium text-foreground/80 hover:text-accent transition-colors duration-300"
+            >
+              {item.label}
+            </a>
+          ))}
+        </div>
+
+        {/* CTA Button */}
+        <button className="hidden md:block btn-luxury text-sm">
+          Explorar Catálogo
+        </button>
+
+        {/* Mobile Menu Button */}
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className="md:hidden p-2 hover:bg-secondary rounded-lg transition-colors"
+        >
+          {isOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
+      </div>
+
+      {/* Mobile Navigation */}
+      {isOpen && (
+        <div className="md:hidden bg-card border-b border-border">
+          <div className="container py-4 space-y-4">
+            {navItems.map((item) => (
+              <a
+                key={item.label}
+                href={item.href}
+                className="block font-body text-sm font-medium text-foreground/80 hover:text-accent transition-colors"
+                onClick={() => setIsOpen(false)}
+              >
+                {item.label}
+              </a>
+            ))}
+            <button className="w-full btn-luxury text-sm mt-4">
+              Explorar Catálogo
+            </button>
+          </div>
+        </div>
+      )}
+    </nav>
+  );
+}

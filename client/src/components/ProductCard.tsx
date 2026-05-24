@@ -1,1 +1,68 @@
-import { ExternalLink } from 'lucide-react';\n\ninterface ProductCardProps {\n  title: string;\n  category: string;\n  price: string;\n  image: string;\n  description: string;\n  affiliateLink: string;\n  affiliateProgram: string;\n}\n\nexport default function ProductCard({\n  title,\n  category,\n  price,\n  image,\n  description,\n  affiliateLink,\n  affiliateProgram,\n}: ProductCardProps) {\n  return (\n    <div className=\"luxury-card fade-in-up group\">\n      {/* Product Image */}\n      <div className=\"product-image\">\n        <img src={image} alt={title} />\n        <div className=\"absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300\" />\n      </div>\n\n      {/* Product Info */}\n      <div className=\"p-6\">\n        <div className=\"flex items-start justify-between mb-3\">\n          <div>\n            <p className=\"text-accent text-xs font-semibold uppercase tracking-widest mb-1\">\n              {category}\n            </p>\n            <h3 className=\"font-heading text-xl text-foreground\">{title}</h3>\n          </div>\n        </div>\n\n        {/* Accent Line */}\n        <div className=\"accent-line my-4\" />\n\n        {/* Description */}\n        <p className=\"font-body text-sm text-foreground/70 mb-4 line-clamp-2\">\n          {description}\n        </p>\n\n        {/* Price and Program */}\n        <div className=\"flex items-center justify-between mb-4\">\n          <span className=\"font-display text-lg text-accent\">{price}</span>\n          <span className=\"text-xs text-foreground/50 font-body\">{affiliateProgram}</span>\n        </div>\n\n        {/* CTA Button */}\n        <a\n          href={affiliateLink}\n          target=\"_blank\"\n          rel=\"noopener noreferrer\"\n          className=\"w-full btn-luxury flex items-center justify-center gap-2 text-sm\"\n        >\n          Ver Produto\n          <ExternalLink size={16} />\n        </a>\n      </div>\n    </div>\n  );\n}\n
+import { ExternalLink } from 'lucide-react';
+
+interface ProductCardProps {
+  title: string;
+  category: string;
+  price: string;
+  image: string;
+  description: string;
+  affiliateLink: string;
+  affiliateProgram: string;
+}
+
+export default function ProductCard({
+  title,
+  category,
+  price,
+  image,
+  description,
+  affiliateLink,
+  affiliateProgram,
+}: ProductCardProps) {
+  return (
+    <div className="luxury-card fade-in-up group">
+      {/* Product Image */}
+      <div className="product-image">
+        <img src={image} alt={title} />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+      </div>
+
+      {/* Product Info */}
+      <div className="p-6">
+        <div className="flex items-start justify-between mb-3">
+          <div>
+            <p className="text-accent text-xs font-semibold uppercase tracking-widest mb-1">
+              {category}
+            </p>
+            <h3 className="font-heading text-xl text-foreground">{title}</h3>
+          </div>
+        </div>
+
+        {/* Accent Line */}
+        <div className="accent-line my-4" />
+
+        {/* Description */}
+        <p className="font-body text-sm text-foreground/70 mb-4 line-clamp-2">
+          {description}
+        </p>
+
+        {/* Price and Program */}
+        <div className="flex items-center justify-between mb-4">
+          <span className="font-display text-lg text-accent">{price}</span>
+          <span className="text-xs text-foreground/50 font-body">{affiliateProgram}</span>
+        </div>
+
+        {/* CTA Button */}
+        <a
+          href={affiliateLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="w-full btn-luxury flex items-center justify-center gap-2 text-sm"
+        >
+          Ver Produto
+          <ExternalLink size={16} />
+        </a>
+      </div>
+    </div>
+  );
+}
