@@ -206,6 +206,7 @@ function vitePluginStorageProxy(): Plugin {
 const plugins = [react(), tailwindcss(), jsxLocPlugin(), vitePluginManusRuntime(), vitePluginManusDebugCollector(), vitePluginStorageProxy()];
 
 export default defineConfig({
+  base: "/luxury-affiliate-site/",
   plugins,
   resolve: {
     alias: {
